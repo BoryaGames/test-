@@ -5,13 +5,14 @@
 <script src="https://code.jquery.com/jquery-3.5.1.min.js">
 </script>
 <script>
-window.onload = function() {
-$.getJSON("https://discord.com/api/guilds/729093316842487869/widget.json",function(t) {
-document.body.innerHTML = `Название: ${t.name}<br/>ID: ${t.id}<br/>Участников: ${t.members.length}<br/>Ссылка-приглашение: ${t.instant_invite}`;
+function see() {
+$.getJSON("https://discord.com/api/guilds/"+document.querySelector('#id').value+"/widget.json",function(t) {
+document.body.innerHTML = `<br/>Название: ${t.name}<br/>ID: ${t.id}<br/>Участников: ${t.members.length}<br/>Ссылка-приглашение: ${t.instant_invite}`;
 });
 };
 </script>
 </head>
 <body>
+<input type="text" placeholder="ID сервера" id="id"><button onclick="see()">Смотреть информацию</button>
 </body>
 </html>
