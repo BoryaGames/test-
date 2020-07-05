@@ -7,7 +7,7 @@
 <script>
 window.onload = function() {
 $.getJSON("https://discord.com/api/guilds/729093316842487869/widget.json",function(t) {
-document.body.innerHTML = "SUCCESS!";
+document.body.innerHTML = t.name;
 });
 };
 </script>
