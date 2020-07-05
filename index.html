@@ -7,8 +7,8 @@
 <script>
 function see() {
 $.getJSON("https://discord.com/api/guilds/"+document.querySelector('#id').value+"/widget.json",function(t) {
-document.querySelector('#id').value = t.id;
 document.body.innerHTML += `<br/>Название: ${t.name}<br/>ID: ${t.id}<br/>Участников: ${t.members.length}<br/>Ссылка-приглашение: ${t.instant_invite}`;
+document.querySelector('#id').value = t.id;
 });
 };
 </script>
