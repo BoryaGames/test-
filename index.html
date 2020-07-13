@@ -20,10 +20,10 @@ if (!t.code && !t.message) {
 document.body.innerHTML += `<br/>Название: ${t.name}<br/>ID: ${t.id}<br/>Участников: ${t.members.length}<br/>Ссылка-приглашение: ${t.instant_invite}`;
 document.querySelector('#id').value = t.id;
 } else {
-if (t.message = "Unknown Guild") {
+if (t.code == "10004" || t.code == 10004) {
 document.body.innerHTML = `<div id="modal">Ошибка, сервер не найден!</div>`;
 } else {
-if (t.message = "Widget Disabled") {
+if (t.code == "Widget Disabled") {
 document.body.innerHTML = `<div id="modal">Я не могу прочитать информацию, виджет сервера не включен!</div>`;
 }
 }
