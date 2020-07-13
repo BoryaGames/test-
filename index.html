@@ -20,13 +20,12 @@ height: 100px;
 <script>
 function see() {
 $.getJSON("https://discord.com/api/guilds/"+document.querySelector('#id').value+"/widget.json",function(t) {
+alert(JSON.stringify(t));
 if (!t.code && !t.message) {
 document.body.innerHTML += `<br/>Название: ${t.name}<br/>ID: ${t.id}<br/>Участников: ${t.members.length}<br/>Ссылка-приглашение: ${t.instant_invite}`;
 document.querySelector('#id').value = t.id;
 } else {
-alert()
 if (t.code == "10004" || t.code == 10004) {
-alert()
 document.body.innerHTML = `<div id="modal">Ошибка, сервер не найден!</div>`;
 } else {
 if (t.code == "Widget Disabled") {
