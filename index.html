@@ -1,14 +1,33 @@
 <html>
 <head>
 <style>
+body {
+background: lightskyblue;
+}
+#modal {
+background: white;
+color: green;
+border: 1px solid red;
+border-radius: 10px;
+}
 </style>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js">
 </script>
 <script>
 function see() {
 $.getJSON("https://discord.com/api/guilds/"+document.querySelector('#id').value+"/widget.json",function(t) {
+if (!t.code && !t.message) {
 document.body.innerHTML += `<br/>Название: ${t.name}<br/>ID: ${t.id}<br/>Участников: ${t.members.length}<br/>Ссылка-приглашение: ${t.instant_invite}`;
 document.querySelector('#id').value = t.id;
+} else {
+if (t.message = "Unknown Guild") {
+document.body.innerHTML = `<div id="modal">Ошибка, сервер не найден!</div>`;
+} else {
+if (t.message = "Widget Disabled") {
+document.body.innerHTML = `<div id="modal">Я не могу прочитать информацию, виджет сервера не включен!</div>`;
+}
+}
+}
 });
 };
 </script>
