@@ -9,6 +9,10 @@ background: white;
 color: green;
 border: 1px solid red;
 border-radius: 10px;
+text-align: center;
+vertical-align: middle;
+width: 100px;
+height: 100px;
 }
 </style>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js">
@@ -17,7 +21,6 @@ border-radius: 10px;
 function see() {
 $.getJSON("https://discord.com/api/guilds/"+document.querySelector('#id').value+"/widget.json",function(t) {
 if (!t.code && !t.message) {
-alert()
 document.body.innerHTML += `<br/>Название: ${t.name}<br/>ID: ${t.id}<br/>Участников: ${t.members.length}<br/>Ссылка-приглашение: ${t.instant_invite}`;
 document.querySelector('#id').value = t.id;
 } else {
